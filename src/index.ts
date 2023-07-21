@@ -1,4 +1,4 @@
-import { extendConfig, extendEnvironment } from "hardhat/config";
+import { extendConfig, extendEnvironment, task } from "hardhat/config";
 import { lazyObject } from "hardhat/plugins";
 import { HardhatConfig, HardhatUserConfig } from "hardhat/types";
 import path from "path";
@@ -6,6 +6,7 @@ import path from "path";
 import { ExampleHardhatRuntimeEnvironmentField } from "./ExampleHardhatRuntimeEnvironmentField";
 // This import is needed to let the TypeScript compiler know that it should include your type
 // extensions in your npm package's types file.
+import { TASK_EON_DEPLOY_GAME_ROOT } from "./task-names";
 import "./type-extensions";
 
 extendConfig(
@@ -46,4 +47,8 @@ extendEnvironment((hre) => {
   // We use lazyObject to avoid initializing things until they are actually
   // needed.
   hre.example = lazyObject(() => new ExampleHardhatRuntimeEnvironmentField());
+});
+
+task(TASK_EON_DEPLOY_GAME_ROOT, async (args, hre) => {
+  console.log(hre.example.sayHello());
 });
