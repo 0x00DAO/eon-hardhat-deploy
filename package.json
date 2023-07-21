@@ -1,5 +1,5 @@
 {
-  "name": "eno-hardhat-plugin-deploy",
+  "name": "@zero-dao/eno-hardhat-plugin-deploy",
   "version": "0.0.1",
   "description": "A Hardhat plugin to deploy contracts using Eno",
   "repository": "git@github.com:0x00DAO/eon-hardhat-deploy.git",
